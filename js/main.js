@@ -206,7 +206,7 @@ resize();
 
 // ---------------------------------------------------------------- modes & camera
 const MODES = {
-  angel:   { i: 0, label: 'Angel',         w: [1, 0, 0], pitch: 0.05, dist: 19, ty: 0.3 },
+  angel:   { i: 0, label: 'Angel',         w: [1, 0, 0], pitch: 0.05, dist: 16.5, ty: 1.15 },
   circus:  { i: 1, label: 'Oxford Circus', w: [0, 1, 0], pitch: 0.62, dist: 30,   ty: -2.2 },
   release: { i: 2, label: 'Release',       w: [0, 0, 1], pitch: 0.12, dist: 24,   ty: 0 },
 };

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spirit of Light</title>
+<link rel="icon" href="data:,">
+<meta name="description" content="The angel lights of Oxford Circus, London, rebuilt as a 3D particle installation you steer with your hand.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=22">
+<script type="importmap">{ "imports": { "three": "./vendor/three.module.min.js" } }</script>
+</head>
+<body data-mode="release">
+<canvas id="gl"></canvas>
+<div id="labels" aria-hidden="true"></div>
+
+<!-- intro -->
+<section id="intro">
+  <p class="eyebrow">Interactive particle study · London · 2025–26</p>
+  <h1>Spirit <em>of</em> Light</h1>
+  <p class="lede">The angel lights that hang over Oxford Circus every winter, rebuilt from 72,000 points of light. Turn them with your hand.</p>
+  <button id="enter" class="btn-primary">Enter</button>
+  <button id="enter-hand" class="btn-ghost">Enter with gesture control</button>
+</section>
+
+<!-- restored controls -->
+<details id="settings" class="hud settings">
+  <summary>Particle settings</summary>
+  <div class="settings-content">
+    <label for="particleHue">Custom colour <output id="hue-value">40°</output></label>
+    <input type="range" id="particleHue" min="0" max="360" value="40">
+    <label for="particleShape">Particle shape</label>
+    <select id="particleShape"><option value="circle">Circle · Glow</option><option value="square">Square · Crisp</option></select>
+    <label for="particleCount">Particle count <output id="count-value">72,000</output></label>
+    <input type="range" id="particleCount" min="5000" max="72000" step="1000" value="72000">
+    <label for="brightness">Brightness <output id="brightness-value">140%</output></label>
+    <input type="range" id="brightness" min="70" max="240" step="5" value="140">
+    <label for="zoom">Zoom <output id="zoom-value">100%</output></label>
+    <input type="range" id="zoom" min="75" max="200" step="5" value="100">
+    <label for="handSensitivity">Hand rotation <output id="sensitivity-value">3×</output></label>
+    <input type="range" id="handSensitivity" min="1" max="5" step="0.5" value="3">
+    <p>Fist → Angel · Open palm → Street<br>No hand → Release<br>Form buttons switch to manual control.</p>
+    <button id="return-entrance" class="btn-ghost">Return to standby</button>
+  </div>
+</details>
+
+<!-- chrome -->
+<header class="hud top-left">
+  <div class="brand">Spirit <em>of</em> Light</div>
+  <div class="meta">Angel lights of Oxford Circus, London</div>
+</header>
+
+<div class="hud top-right mono">
+  <div class="row"><span class="k">Mode</span><span class="v"><span id="mode-idx">03</span> — <span id="mode-name">Release</span></span></div>
+  <div class="row"><span class="k">LEDs</span><span class="v" id="led-count">72,000</span></div>
+  <div class="row"><span class="k">View</span><span class="v" id="yaw">000°</span></div>
+</div>
+
+<nav class="hud bottom-left" aria-label="Controls">
+  <div class="group">
+    <div class="glabel mono">Form</div>
+    <div class="seg">
+      <button data-set-mode="angel" aria-pressed="false"><span class="mono">01</span> Angel</button>
+      <button data-set-mode="circus" aria-pressed="false"><span class="mono">02</span> Oxford Circus</button>
+      <button data-set-mode="release" aria-pressed="true"><span class="mono">03</span> Release</button>
+    </div>
+  </div>
+  <div class="group">
+    <div class="glabel mono">View</div>
+    <div class="seg">
+      <button data-view="front" aria-pressed="false">Front</button>
+      <button data-view="spatial" aria-pressed="false">3D</button>
+      <button data-view="side" aria-pressed="false">Side</button>
+    </div>
+  </div>
+  <div class="group">
+    <div class="glabel mono">Light · <span id="pal-name">Gold</span></div>
+    <div class="swatches">
+      <button data-pal="gold" aria-label="Gold" style="--c:#ffc864" aria-pressed="true"></button>
+      <button data-pal="ice" aria-label="Ice" style="--c:#9ad6ff" aria-pressed="false"></button>
+      <button data-pal="rose" aria-label="Rose" style="--c:#ff6a80" aria-pressed="false"></button>
+    </div>
+  </div>
+</nav>
+
+<aside class="hud bottom-right">
+  <div class="hand-card">
+    <div class="preview-wrap">
+      <canvas id="hand-preview" width="192" height="144"></canvas>
+      <div class="preview-empty mono">Camera off</div>
+    </div>
+    <div class="hand-meta">
+      <div id="hand-state" class="mono">Drag to turn</div>
+      <button id="hand-btn" class="btn-ghost">Recognise gestures</button>
+      <ul class="legend mono">
+        <li><b>Fist</b> gather the angel</li>
+        <li><b>Open palm</b> lay out the street</li>
+        <li><b>Move</b> left / right to turn</li>
+        <li><b>No hand</b> release the lights</li>
+      </ul>
+    </div>
+  </div>
+</aside>
+
+<div class="hud bottom-centre"><canvas id="ruler"></canvas></div>
+<p class="standby-note mono">Standby — move or raise a hand</p>
+
+<video id="cam" playsinline muted hidden></video>
+<script type="module" src="js/main.js?v=35"></script>
+</body>
+</html>

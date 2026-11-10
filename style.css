@@ -30,7 +30,7 @@ button:focus-visible { outline: 1px solid var(--accent); outline-offset: 3px; }
 body.entered #intro { opacity: 0; visibility: hidden; pointer-events: none; }
 .eyebrow { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--dim); margin: 0 0 22px; }
 #intro h1 { font-weight: 400; font-size: clamp(56px, 11vw, 148px); line-height: 0.9; margin: 0; letter-spacing: -0.01em; }
-#intro h1 em, .brand em { font-style: italic; color: var(--accent); transition: color 0.6s; }
+#intro h1 em, .brand em { font-style: italic; margin-inline-end: 0.12em; color: var(--accent); transition: color 0.6s; }
 .lede { max-width: 34ch; font-size: clamp(17px, 1.7vw, 21px); line-height: 1.35; color: var(--dim); margin: 26px 0 34px; }
 .btn-primary {
   font-family: var(--mono); font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase;

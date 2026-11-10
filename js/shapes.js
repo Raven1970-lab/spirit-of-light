@@ -222,13 +222,7 @@ export function buildAngel(n) {
         B.line(tube(t0, Math.PI), tube(Math.min(1, t0 + 0.035), 0), 0.55, 0.5, 0.2);
       }
     }
-    // covert feathers wrapping the shoulder
-    for (let r = 0; r < 3; r++) {
-      B.curve((t) => {
-        const x = lerp(0.25, 2.2 + r * 0.6, t);
-        return [s * x, 2.05 - r * 0.3 + 0.25 * t * t - 0.06 * Math.abs(Math.sin(t * Math.PI * 7)), -0.1 - 0.4 * Math.sin(Math.PI * t) + 0.2 * r];
-      }, 1.0, 1.2, 0.4);
-    }
+
   }
 
   // --- side swags: open hammock sections, pinched at both anchors

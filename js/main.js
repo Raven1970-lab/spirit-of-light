@@ -3,7 +3,7 @@ import { EffectComposer } from '../vendor/postprocessing/EffectComposer.js';
 import { RenderPass } from '../vendor/postprocessing/RenderPass.js';
 import { UnrealBloomPass } from '../vendor/postprocessing/UnrealBloomPass.js';
 import { OutputPass } from '../vendor/postprocessing/OutputPass.js';
-import { buildAngel, buildCircus, buildScatter, srand, rnd } from './shapes.js?v=34';
+import { buildAngel, buildCircus, buildScatter, srand, rnd } from './shapes.js?v=38';
 
 const $ = (s) => document.querySelector(s);
 const MOBILE = matchMedia('(max-width: 760px), (pointer: coarse)').matches;
